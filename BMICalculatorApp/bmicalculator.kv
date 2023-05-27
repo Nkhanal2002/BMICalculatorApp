@@ -1,0 +1,138 @@
+#applicable for using hex color code
+#:import C kivy.utils.get_color_from_hex
+
+#using main window as a gridlayout
+GridLayout:
+    cols: 1
+    size_hint: 0.65, 1
+    pos_hint:{"center_x": 0.5,"center_y": 0.5}
+
+    #using label widget
+    Label:
+        text: "Welcome To BMI Calculator App!"
+        font_name: "Consolab.ttf"
+        font_size:"25dp"
+        color: C("#090400")
+
+    #using another GridLayout to make an app looks good and friendly
+    GridLayout:
+        cols:2
+        spacing:10
+        
+        #using different widgets
+        Label:
+            text: "Enter your name:"
+            font_size:"17dp"
+            font_name: "Consola.ttf"
+            color: C("#090400")
+        TextInput:
+            id: name
+            size_hint: 1, None
+            height: "35dp"
+            font_size:"15dp"
+            multiline: False
+        Label:
+            text: "Enter your weight(lbs):"
+            font_size:"17dp"
+            font_name:"Consola.ttf"
+            color: C("#090400")
+        TextInput:
+            id: weight
+            size_hint: 1, None
+            height: "35dp"
+            font_size:"15dp"
+            multiline: False
+
+        Label:
+            text: "Enter your height(in):"
+            font_size:"17dp"
+            font_name: "Consola.ttf"
+            color: C("#090400")
+        TextInput:
+            id: humanHeight
+            font_size:"15dp"
+            size_hint: 1, None
+            height: "35dp"
+            multiline: False
+
+
+    GridLayout:
+        cols:3
+        #using button widget for calculating BMI
+        Button:
+            id: submitButton
+            text: "Calculate BMI"
+            size_hint:None, None
+            size:"200dp","30dp"
+            font_size:"17dp"
+            font_name: "Consolab.ttf"
+            background_normal: ""
+            background_color: C("#6d5885")
+            on_press: app.clickMe() #calls the clickMe function when a button is pressed
+
+        #using Label widget to display BMI
+        Label:
+            id: mainContent
+            font_size:"15dp"
+            font_name: "consolab.ttf"
+            color: C("#090400")
+
+        Button:
+            id: gatherBMIReport
+            text: "Collect BMI Report"
+            size_hint:None, None
+            size: "200dp","30dp"
+            font_size:"17dp"
+            font_name: "Consolab.ttf"
+            background_normal: ""
+            background_color: C("#6d5885")
+            on_press: app.accumulateBMI() #calls the accumulate function when a button is pressed
+
+    #using AnchorLayout to give required design
+    AnchorLayout:
+        anchor_x: "center"
+        anchor_y: "bottom"
+
+        #using Label widget to search BMI on the basis of name
+        Label:
+            id:findBMI
+            text: "Enter a name to get BMI Report"
+            font_size:"17dp"
+            font_name: "Consolab.ttf"
+            color: C("#090400")
+
+        #using TextInput to enter the searching name
+        TextInput:
+            id: nameHistory
+            font_size:"15dp"
+            halign:"center"
+            size_hint: None,None
+            size: "300dp", "35dp"
+            multiline: False
+
+    AnchorLayout:
+        anchor_x: "center"
+        anchor_y: "top"
+        padding:(0,40,0,0)
+        #using Button to execute searchBMIWithName function
+        Button:
+            id: loadButton
+            text: "Click Me To Find BMI!"
+            size_hint:None, None
+            size: "200dp","30dp"
+            font_size:"17dp"
+            font_name: "Consolab.ttf"
+            background_normal: ""
+            background_color: C("#6d5885")
+            on_press: app.searchBMIWithName() #calls searchBMIWithName function 
+    GridLayout:
+        rows:1
+        padding: 0, -40, 0, 0
+        #using Label to display BMI of a person with an accurate BMI range
+        Label:
+            id: loadInformation
+            font_size:"16dp"
+            halign:"center"
+            font_name: "consolab.ttf"
+            color: C("#090400")
+

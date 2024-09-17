@@ -55,5 +55,5 @@ The BMI Calculator App is a Kivy-based application developed in Python that calc
 - Enable users to update or delete existing BMI records.
 - Support additional units (kilograms and meters).
 ## License
-This project is licensed under the MIT License. See LICENSE for more information.
+This project is licensed under the MIT License. See [LICENSE](https://github.com/Nkhanal2002/BMICalculatorApp?tab=MIT-1-ov-file) for more information.
 
